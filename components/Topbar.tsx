@@ -20,8 +20,17 @@ import { FaInstagram } from "react-icons/fa";
 import { SiBehance } from "react-icons/si";
 import { ImLinkedin } from "react-icons/im";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { useRouter } from "next/router";
 
 const Topbar: FC = (): JSX.Element => {
+  const { isOpen, onOpen, onClose } = useDisclosure()
+  const router = useRouter()
+
+  const handleClick = (navLink: NavigationLink) => {
+    router.push(navLink.href)
+    onClose()
+  }
+
   return (
     <Flex h="100px" alignItems="center" justifyContent="space-between">
       <Flex>
@@ -62,11 +71,54 @@ const Topbar: FC = (): JSX.Element => {
         )}
       </Flex>
       <Button
-        display={["flex", "flex", "flex", "flex"]}
+        onClick={() => onOpen()}
+        display={["flex", "flex", "none", "none"]}
         leftIcon={<GiHamburgerMenu size={"2em"} />}
         colorScheme="black"
         variant="ghost"
       ></Button>
+      <Drawer onClose={onClose} isOpen={isOpen} size='full'>
+        <DrawerOverlay />
+        <DrawerContent>
+          <DrawerCloseButton />
+          <DrawerBody>
+            <Flex
+              height='100%'
+              flexDir='column'
+              justifyContent='center'
+              justifyItems='center'
+              gap={24}>
+              <Flex gap={24} flexDir='column'>
+                {NAV_LINKS.map(
+                  (navLink: NavigationLink): JSX.Element => (
+                    <Link
+                      key={navLink.name}
+                      href={navLink.href}
+                      onClick={() => handleClick(navLink)} passHref>
+                      <Text fontSize={28} fontWeight="black" lineHeight={1.2}>
+                        {navLink.name}
+                      </Text>
+                    </Link>
+                  )
+                )}
+              </Flex>
+              <Flex gap={24}>
+                {SOCIAL_MEDIA_LINKS.map(
+                  (socialIconName: SocialMediaLinks): JSX.Element => (
+                    <Link
+                      key={socialIconName.name.toString()}
+                      href={socialIconName.url}
+                      passHref
+                    >
+                      <Icon boxSize={12} as={socialIconName.name} />
+                    </Link>
+                  )
+                )}
+              </Flex>
+            </Flex>
+          </DrawerBody>
+        </DrawerContent>
+      </Drawer>
     </Flex>
   );
 };

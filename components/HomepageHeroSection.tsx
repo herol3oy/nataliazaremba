@@ -37,7 +37,7 @@ export default function HomepageHeroSection() {
       </Flex>
       <Image
         onClick={nextImage}
-        display={["none", "none", "none", "flex"]}
+        display={["none", "none", "flex", "flex"]}
         cursor={"pointer"}
         key={BADGS[imageIndex].alt}
         src={BADGS[imageIndex].src}
