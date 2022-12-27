@@ -1,4 +1,4 @@
-import { sanityClient } from "@/lib/sanity";
+import { sanityClient } from "./sanity";
 
 const portfolioProjectsQuery = `
     _id,

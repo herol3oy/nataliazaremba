@@ -1,7 +1,7 @@
 import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { Text, SimpleGrid, Flex, Box, Tag } from "@chakra-ui/react";
-import { urlFor, PortableText } from "@/lib/sanity";
+import { urlFor, PortableText } from "../lib/sanity";
 import { getPortfolioProject, getPortfolioProjectSlug } from "@/lib/sanityApi";
 import { Data } from "@/models/data";
 import { PortfolioItemPage } from "@/models/portfolio-item-page";
@@ -50,7 +50,7 @@ const PortfolioProjectDescriptions = ({
         fontWeight="normal"
         width={["100%", "85%", "65%", "100%"]}
       >
-        <PortableText blocks={portfolioProjectDescription?.description} />
+        <PortableText value={portfolioProjectDescription?.description} />
       </Text>
       <Flex marginY={3} gap={4} flexWrap="wrap">
         {portfolioProjectDescription?.category.map((category: string) => (
