@@ -20,7 +20,7 @@ export default function PortfolioItem({ data }: { data: Data }) {
           portfolioProjectDescription={data?.portfolioItemPage}
         />
       </Flex>
-      <SimpleGrid columns={[1, 2]} spacing={3}>
+      <SimpleGrid spacing={3}>
         <PortfolioProjectPhotos
           portfolioProjectPhotos={data?.portfolioItemPage}
         />
@@ -56,12 +56,15 @@ const PortfolioProjectDescriptions = ({
         {portfolioProjectDescription?.category.map((category: string) => (
           <Tag
             size="lg"
+            padding={'1.2rem'}
+            borderRadius={'1.2rem'}
+            fontSize={'large'}
             key={category}
             variant="solid"
-            backgroundColor="var(--chakra-colors-yellow-400)"
+            backgroundColor="var(--chakra-colors-yellow-300)"
             color="gray.700"
           >
-            {category}
+            {category.toUpperCase()}
           </Tag>
         ))}
       </Flex>
