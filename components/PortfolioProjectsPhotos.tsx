@@ -6,7 +6,7 @@ export default function PortfolioProjectsPhotos({
   portfolioProjectsPhotos,
 }: any) {
   return (
-    <SimpleGrid columns={[1, 2]} spacing={3}>
+    <SimpleGrid spacing={3}>
       {portfolioProjectsPhotos.length &&
         portfolioProjectsPhotos.map((portfolioItem: any) => (
           <NextLink
