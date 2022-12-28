@@ -2,7 +2,7 @@ import Image from "next/legacy/image";
 import { useRouter } from "next/router";
 import { Text, SimpleGrid, Flex, Box, Tag } from "@chakra-ui/react";
 import { urlFor, PortableText } from "../lib/sanity";
-import { getPortfolioProject, getPortfolioProjectSlug } from "@/lib/sanityApi";
+import { getPortfolioProject } from "@/lib/sanityApi";
 import { Data } from "@/models/data";
 import { PortfolioItemPage } from "@/models/portfolio-item-page";
 
@@ -95,14 +95,6 @@ const PortfolioProjectPhotos = ({
   );
 };
 
-// export async function getStaticPaths() {
-//   const paths = await getPortfolioProjectSlug();
-//   return {
-//     paths,
-//     fallback: true,
-//   };
-// }
-
 export async function getServerSideProps({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const portfolioItemPage = await getPortfolioProject(slug);
@@ -114,14 +106,3 @@ export async function getServerSideProps({ params }: { params: { slug: string } 
     },
   };
 }
-
-
-
-// export async function getServerSideProps({ params }) {
-//   let data = await getInterviewContent(params.interview);
-//   return {
-//     props: {
-//       ...data[0],
-//     },
-//   };
-// }
