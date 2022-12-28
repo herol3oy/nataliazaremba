@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { Flex, Text, Heading } from "@chakra-ui/react";
+import { Flex, Heading } from "@chakra-ui/react";
 import Image from "next/legacy/image";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
