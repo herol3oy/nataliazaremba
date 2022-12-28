@@ -1,5 +1,6 @@
-import { Text, Image, Flex, HStack } from "@chakra-ui/react";
+import { Text, Flex, HStack } from "@chakra-ui/react";
 import { useState } from "react";
+import Image from 'next/image'
 
 export default function HomepageHeroSection() {
   const [imageIndex, imageIndexSet] = useState(0);
@@ -35,16 +36,19 @@ export default function HomepageHeroSection() {
           )
         )}
       </Flex>
-      <Image
+      <Flex
+        key={BADGS[imageIndex].alt}
         onClick={nextImage}
         display={["none", "none", "flex", "flex"]}
-        cursor={"pointer"}
-        key={BADGS[imageIndex].alt}
-        src={BADGS[imageIndex].src}
-        width={BADGS[imageIndex].width}
-        height={BADGS[imageIndex].height}
-        alt={BADGS[imageIndex].alt}
-      />
+        cursor={"pointer"}>
+        <Image
+          priority
+          src={BADGS[imageIndex].src}
+          width={BADGS[imageIndex].width}
+          height={BADGS[imageIndex].height}
+          alt={BADGS[imageIndex].alt}
+        />
+      </Flex>
     </HStack>
   );
 }
