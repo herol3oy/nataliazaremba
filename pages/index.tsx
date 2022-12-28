@@ -14,7 +14,7 @@ const Home: NextPage = ({ portfolioItems }: any) => {
 
 export default Home;
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const portfolioItems = await getAllPortfolioProjects();
   return {
     props: {
