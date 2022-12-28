@@ -95,15 +95,15 @@ const PortfolioProjectPhotos = ({
   );
 };
 
-export async function getStaticPaths() {
-  const paths = await getPortfolioProjectSlug();
-  return {
-    paths,
-    fallback: true,
-  };
-}
+// export async function getStaticPaths() {
+//   const paths = await getPortfolioProjectSlug();
+//   return {
+//     paths,
+//     fallback: true,
+//   };
+// }
 
-export async function getStaticProps({ params }: { params: { slug: string } }) {
+export async function getServerSideProps({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const portfolioItemPage = await getPortfolioProject(slug);
   return {
@@ -114,3 +114,14 @@ export async function getStaticProps({ params }: { params: { slug: string } }) {
     },
   };
 }
+
+
+
+// export async function getServerSideProps({ params }) {
+//   let data = await getInterviewContent(params.interview);
+//   return {
+//     props: {
+//       ...data[0],
+//     },
+//   };
+// }
