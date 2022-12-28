@@ -2,6 +2,8 @@ import type { NextPage } from "next";
 import { Flex, Heading } from "@chakra-ui/react";
 import Image from "next/legacy/image";
 import Carousel from "react-multi-carousel";
+import { BADGS_FOOTER } from "@/lib/badgs-footer";
+import { CAROUSEL_RESPONSIVE } from "@/lib/carousel-responsive";
 import "react-multi-carousel/lib/styles.css";
 
 const ABOUT_NATALIA_TEXTS = [
@@ -28,7 +30,7 @@ const About: NextPage = () => {
         autoPlay
         centerMode
         autoPlaySpeed={3000}
-        responsive={responsive}
+        responsive={CAROUSEL_RESPONSIVE}
         containerClass="carousel-container"
         removeArrowOnDeviceType={[
           "superLargeDesktop",
@@ -57,61 +59,3 @@ const About: NextPage = () => {
 };
 
 export default About;
-
-const BADGS_FOOTER = [
-  {
-    src: "/about-badges/badges_final_more_about.svg",
-    width: 150,
-    height: 150,
-    alt: "More about me badge",
-  },
-  {
-    src: "/about-badges/badges_final_bicycle.svg",
-    width: 150,
-    height: 150,
-    alt: "Bicycle badge",
-  },
-  {
-    src: "/about-badges/badges_final_mountains.svg",
-    width: 150,
-    height: 150,
-    alt: "Bicycle badge",
-  },
-  {
-    src: "/about-badges/badges_final_paws.svg",
-    width: 150,
-    height: 150,
-    alt: "Bicycle badge",
-  },
-  {
-    src: "/about-badges/badges_final_pride.svg",
-    width: 150,
-    height: 150,
-    alt: "Pride badge",
-  },
-  {
-    src: "/about-badges/badges_final_green_thumg.svg",
-    width: 150,
-    height: 150,
-    alt: "Green thumb badge",
-  },
-];
-
-const responsive = {
-  superLargeDesktop: {
-    breakpoint: { max: 4000, min: 3000 },
-    items: 4,
-  },
-  desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 3,
-  },
-  tablet: {
-    breakpoint: { max: 1024, min: 464 },
-    items: 2,
-  },
-  mobile: {
-    breakpoint: { max: 464, min: 0 },
-    items: 1,
-  },
-};
