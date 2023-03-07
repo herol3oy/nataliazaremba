@@ -1,15 +1,7 @@
 import { Text, Flex, HStack } from "@chakra-ui/react";
-import { useState } from "react";
-import Image from 'next/image'
+import SimpleImageSlider from "react-simple-image-slider";
 
 export default function HomepageHeroSection() {
-  const [imageIndex, imageIndexSet] = useState(0);
-
-  const nextImage = () =>
-    imageIndex === BADGS.length - 1
-      ? imageIndexSet(0)
-      : imageIndexSet(imageIndex + 1);
-
   return (
     <HStack minH="calc(100vh - 100px)">
       <Flex
@@ -36,17 +28,16 @@ export default function HomepageHeroSection() {
           )
         )}
       </Flex>
-      <Flex
-        key={BADGS[imageIndex].alt}
-        onClick={nextImage}
-        display={["none", "none", "flex", "flex"]}
-        cursor={"pointer"}>
-        <Image
-          priority
-          src={BADGS[imageIndex].src}
-          width={BADGS[imageIndex].width}
-          height={BADGS[imageIndex].height}
-          alt={BADGS[imageIndex].alt}
+      <Flex display={["none", "none", "flex", "flex"]}>
+        <SimpleImageSlider
+          width={775}
+          height={479}
+          slideDuration={1.5}
+          images={BADGES}
+          showBullets={false}
+          showNavs={false}
+          autoPlay
+          style={{background: 'white'}}
         />
       </Flex>
     </HStack>
@@ -65,24 +56,14 @@ const HERO_PAGE_TEXTS = [
   },
 ];
 
-const BADGS = [
+const BADGES = [
   {
-    src: "/design-nerd.svg",
-    width: 500,
-    height: 500,
-    alt: "Brush and pen badge",
+    url: "/design-nerd.png",
   },
   {
-    src: "/i-am-a-graphic-designer.svg",
-    width: 500,
-    height: 500,
-    alt: "Design nerd",
-    className: "spin",
+    url: "/i-am-a-graphic-designer.png",
   },
   {
-    src: "/data-visualization-vector.svg",
-    width: 500,
-    height: 500,
-    alt: "Logo maker",
+    url: "/data-visualization-vector.png",
   },
 ];
