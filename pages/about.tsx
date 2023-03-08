@@ -18,7 +18,7 @@ const About: NextPage = () => {
           {text}
         </Heading>
       ))}
-      <Marquee gradientWidth={150}>
+      <Marquee className="marquee-container" gradientWidth={150}>
         {BADGS_FOOTER.map((badge) => (
           <Image
             key={badge.src}
@@ -29,6 +29,13 @@ const About: NextPage = () => {
           />
         ))}
       </Marquee>
+      <style global jsx>
+        {`
+          .marquee-container > * {
+            gap: 1.3rem;
+          }
+        `}
+      </style>
     </Flex>
   );
 };
