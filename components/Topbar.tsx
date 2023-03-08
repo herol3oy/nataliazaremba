@@ -21,7 +21,7 @@ const Topbar: FC = (): JSX.Element => {
 
   return (
     <Flex h="100px" alignItems="center" justifyContent="space-between">
-      <Flex>
+      <Flex width={['12', '24']}>
         <NextLink href="/" passHref>
           <Image
             src="/natalia-zaremba-website-logo.svg"

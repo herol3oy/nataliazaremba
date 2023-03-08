@@ -38,7 +38,7 @@ const PortfolioProjectDescriptions = ({
     <>
       <Text
         borderBottomColor="gray.400"
-        fontSize={[22, 28, 36, 68]}
+        fontSize={[22, 28, 36, 64]}
         fontWeight="black"
       >
         {portfolioProjectDescription?.title}

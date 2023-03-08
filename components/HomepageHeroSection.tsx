@@ -3,7 +3,7 @@ import SimpleImageSlider from "react-simple-image-slider";
 
 export default function HomepageHeroSection() {
   return (
-    <HStack minH="calc(100vh - 100px)">
+    <HStack minH={["calc(100vh - 50vh)","calc(100vh - 100px)"]}>
       <Flex
         width={["100%", "100%", "75%", "70%"]}
         justifyContent="center"
@@ -15,14 +15,14 @@ export default function HomepageHeroSection() {
           i === 0 ? (
             <Text
               key={text}
-              fontSize={[32, 42, 52, 64]}
+              fontSize={[22, 28, 36, 64]}
               fontWeight="black"
               lineHeight={1.2}
             >
               {text}
             </Text>
           ) : (
-            <Text key={text} fontSize={[32, 42, 52, 64]}>
+            <Text key={text} fontSize={[22, 28, 36, 64]}>
               {text}
             </Text>
           )
